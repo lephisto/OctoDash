@@ -77,6 +77,9 @@ lockFile.lock('/tmp/felix.lock', function () {
 			var printTime = {value: data.progress.printTime, time: time};
 			var printTimeLeft = {value: data.progress.printTimeLeft, time: time};
 
+			// Job
+			var jobName = {value: data.job.file.name, time: time};
+
 			client.writeMeasurement(
 			'status', [
 				{
@@ -84,6 +87,7 @@ lockFile.lock('/tmp/felix.lock', function () {
 						completion: completion.value,
 						printTime: printTime.value,
 						printTimeLeft: printTimeLeft.value,
+						jobName: jobName.value,
 					},
 				}
 			]
